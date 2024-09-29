@@ -24,3 +24,9 @@ resource "aws_instance" "my_ec2_instance" {
   vpc_security_group_ids = [aws_security_group.sg_allow_ssh.id]
   tags                   = var.tags
 }
+
+# 1. CLI (-var="")
+# 2. tfvar file
+# 3. ENV (TF_VAR_)
+# 4. Default form variables
+# 5. Prompt if not specified

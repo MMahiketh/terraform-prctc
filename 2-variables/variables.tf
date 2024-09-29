@@ -6,7 +6,7 @@ variable "ami_devops" {
 
 variable "instance_type" {
   type    = string
-  default = "t3.micro"
+#  default = "t3.micro"
 }
 
 variable "tags" {
