@@ -18,3 +18,12 @@ variable "ssh_port" {
   type    = number
   default = 22
 }
+
+variable "common_tags" {
+  type = map(any)
+  default = {
+    Project     = "expense"
+    Environment = "DEV"
+    Terraform   = "True"
+  }
+}

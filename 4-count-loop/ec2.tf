@@ -15,17 +15,21 @@ resource "aws_security_group" "sg_allow_ssh" {
     cidr_blocks      = ["0.0.0.0/0"]
     ipv6_cidr_blocks = ["::/0"]
   }
-  tags = {
-    Name = "Terraform allow_ssh"
-  }
+  tags = merge(
+    var.common_tags, {
+      Name = "Terraform allow_ssh"
+    }
+  )
 }
 
 resource "aws_instance" "my_ec2_instance" {
-  count                  = 3
+  count                  = length(var.instance_names)
   ami                    = var.ami_devops
   instance_type          = var.environment == "PROD" ? "t3.small" : "t3.micro"
   vpc_security_group_ids = [aws_security_group.sg_allow_ssh.id]
-  tags = {
-    Name = var.instance_names[count.index]
-  }
+  tags = merge(
+    var.common_tags, {
+      Name = var.instance_names[count.index]
+    }
+  )
 }
