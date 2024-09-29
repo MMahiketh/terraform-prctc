@@ -5,7 +5,7 @@ variable "ami_devops" {
 }
 
 variable "environment" {
-  type = string
+  type    = string
   default = "DEV"
 }
 

@@ -24,7 +24,7 @@ resource "aws_instance" "my_ec2_instance" {
   ami                    = var.ami_devops
   instance_type          = var.environment == "PROD" ? "t3.small" : "t3.micro"
   vpc_security_group_ids = [aws_security_group.sg_allow_ssh.id]
-  tags                   = {
+  tags = {
     Name = "My ec2"
   }
 }
