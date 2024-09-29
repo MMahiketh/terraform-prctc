@@ -19,3 +19,12 @@ resource "aws_security_group" "sg_allow_ssh" {
 		Name = "terraform allow_ssh"
 	}
 }
+
+resource "aws_instance" "my_ec2_instance"{
+	ami	= "ami-09c813fb71547fc4f"
+	instance_type	= "t3.micro"
+	vpc_security_group_ids	= [aws_security_group.sg_allow_ssh.id]
+	tags = {
+		Name = "terraform ec2"
+	}
+}
