@@ -17,4 +17,14 @@ resource "aws_instance" "my_ec2_instance" {
       "sudo systemctl start nginx"
     ]
   }
+  provisioner "remote-exec" {
+    when = destroy
+    inline = [
+      "sudo systemctl stop nginx",
+      "sudo dnf remove nginx -y"
+    ]
+  }
+  provisioner "local-exec" {
+    command = "echo ${self.public_ip} > public_ip.txt"
+  }
 }
