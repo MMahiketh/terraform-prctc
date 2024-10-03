@@ -4,6 +4,10 @@ variable "ami_id" {
 
 variable "instance_type" {
   type = string
+  validation {
+    condition = contains(["t3.micro", "t3.small", "t2.micro", "t2.small"], var.instance_type)
+    error_message = "instance_type must be 't3.micro', 't3.small', 't2.micro', 't2.small'"
+  }
 }
 
 variable "sg_ids" {
