@@ -1,5 +1,9 @@
 resource "aws_instance" "main" {
-  ami = data.aws_ami.devops_practice_ami.id
-  instance_type = "t3.micro"
-  vpc_security_group_ids = ["sg-008c65bfe7870ea36"]
+  ami = local.ami_id_from_user
+  instance_type = var.instance_type
+  vpc_security_group_ids = var.sg_ids
+
+  tags = {
+    Name = var.instance_name
+  }
 }
