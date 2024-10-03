@@ -8,6 +8,7 @@ Arguments marked with `*` are **mandatory**
             Format is `string`
 
 * *instance_type** - User must provide instance type (EX: "t3.micro", "t3.small", etc.).
+            Instance Type must be anyone from the list ["t3.micro", "t3.small", "t2.micro", "t2.small"]
             Format is `string`
 
 * *instance_name** - User must provide name of instance which is to be created.
