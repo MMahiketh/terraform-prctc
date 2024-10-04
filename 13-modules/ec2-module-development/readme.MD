@@ -11,8 +11,8 @@ Arguments marked with `*` are **mandatory**
             Instance Type must be anyone from the list ["t3.micro", "t3.small", "t2.micro", "t2.small"]
             Format is `string`
 
-* *instance_name** - User must provide name of instance which is to be created.
-            Format is `string`
+* *instance_name** - User must provide the names of instances which are to be created.
+            Format is `list(string)`
 
 *  *sg_ids* - User can provide security group ids to attach to the EC2 instance.
             Format is `list(string)`
@@ -20,8 +20,8 @@ Arguments marked with `*` are **mandatory**
 
 ## Outputs
 
-  *public_ip* - Public IP address of the instance created
+  *public_ip* - Public IP address of the instance(s) created
 
-  *private_ip* - Private IP address of the instance created
+  *private_ip* - Private IP address of the instance(s) created
   
-  *instance_id* - Instance ID of the instance created
+  *instance_id* - Instance ID of the instance(s) created

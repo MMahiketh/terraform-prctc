@@ -15,6 +15,6 @@ variable "sg_ids" {
   default = [ "sg-008c65bfe7870ea36" ]
 }
 
-variable "instance_name" {
-  type = string
+variable "instances" {
+  type = list(string)
 }

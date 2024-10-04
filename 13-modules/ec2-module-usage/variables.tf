@@ -3,7 +3,7 @@ variable "instance_type" {
   default = "t3.micro"
 }
 
-variable "instance_name" {
-  type = string
-  default = "simple-ec2"
+variable "instance_names" {
+  type = list(string)
+  default = ["mysql", "backend", "frontend"]
 }

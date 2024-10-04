@@ -3,5 +3,5 @@ module "an_instance" {
 
   ami_id = data.aws_ami.devops_practice_ami.id
   instance_type = var.instance_type
-  instance_name = var.instance_name
+  instances = var.instance_names
 }
