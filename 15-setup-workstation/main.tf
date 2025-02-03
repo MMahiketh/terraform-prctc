@@ -1,6 +1,6 @@
 resource "aws_instance" "workstation" {
-  ami             = local.ami_id
-  instance_type   = var.instance_type
+  ami                    = local.ami_id
+  instance_type          = var.instance_type
   vpc_security_group_ids = [local.sg]
 
   key_name = "linux-key devops shiva"
@@ -16,15 +16,8 @@ resource "aws_instance" "workstation" {
     user        = "ec2-user"
     private_key = file("../../../linux-key")
   }
-  provisioner "file" {
-    source      = "../../../docker-install.sh"
-    destination = "/tmp/setup.sh"
-  }
 
   provisioner "remote-exec" {
-    inline = [
-      "chmod +x /tmp/setup.sh",
-      "sudo sh /tmp/setup.sh"
-    ]
+    script = "setup.sh"
   }
 }
