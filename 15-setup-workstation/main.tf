@@ -20,4 +20,9 @@ resource "aws_instance" "workstation" {
   provisioner "remote-exec" {
     script = "setup.sh"
   }
+
+  provisioner "file" {
+    source = "~/.aws/credentials"
+    destination = "/home/ec2-user/.aws/credentials"
+  }
 }

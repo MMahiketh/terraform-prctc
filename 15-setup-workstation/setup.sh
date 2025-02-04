@@ -16,3 +16,8 @@ sudo mv kubectl /usr/local/bin
 sudo curl -sLO "https://github.com/eksctl-io/eksctl/releases/latest/download/eksctl_Linux_amd64.tar.gz"
 sudo tar -xzf eksctl_Linux_amd64.tar.gz -C /tmp && rm -f eksctl_Linux_amd64.tar.gz
 sudo mv /tmp/eksctl /usr/local/bin
+
+# setup aws config
+mkdir -p ~/.aws/
+echo "[default]" > ~/.aws/config
+echo "region = us-east-1" >> ~/.aws/config
